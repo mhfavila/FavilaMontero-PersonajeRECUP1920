@@ -37,6 +37,9 @@ public class PicaroDTO extends PersonajeDTO {
 		this.abrirCerradura= abrirCerradura;
 		this.ataqueFurtivo= ataqueFurtivo;
 		
+		//tenog dudas de como maracar si es un tipo de guerrero o mago etc.
+		//this.getTipoPersonaje()!!!!!!!!!
+		
 	}
 
 }
