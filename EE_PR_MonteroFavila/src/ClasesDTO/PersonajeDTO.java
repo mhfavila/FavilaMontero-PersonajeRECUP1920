@@ -83,7 +83,7 @@ public class PersonajeDTO {
 		this.Destreza = Destreza;
 		this.Constitucion = Constitucion;
 		this.Oro = Oro;
-		this.tipoPersonaje = tipoPersonaje;
+		this.tipoPersonaje = "Personaje";
 	}
 
 	@Override
