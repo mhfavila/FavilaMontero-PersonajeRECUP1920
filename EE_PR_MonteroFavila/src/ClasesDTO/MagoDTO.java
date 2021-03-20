@@ -58,14 +58,13 @@ public class MagoDTO extends PersonajeDTO {
 
 	public MagoDTO(String Nombre, int Nivel, int Vida, int Fuerza, int Destreza, int Constitucion, int Oro,
 			String tipoPersonaje, int bonificacionPiromancia, int bonificacionNigromancia, int bonificacionIlusion, int bonificacionTransmutación) {
-		super(Nombre, Nivel, Vida, Fuerza, Destreza, Constitucion, Oro, tipoPersonaje);
+		super(Nombre, Nivel, Vida, Fuerza, Destreza, Constitucion, Oro);
 		this.bonificacionPiromancia = bonificacionPiromancia;
 		this.bonificacionNigromancia =bonificacionNigromancia;
 		this.bonificacionIlusion=bonificacionIlusion;
 		this.bonificacionTransmutación=bonificacionTransmutación;
 		
-		//tenog dudas de como maracar si es un tipo de guerrero o mago etc.
-				//this.getTipoPersonaje()!!!!!!!!!
+	
 	}
 
 }

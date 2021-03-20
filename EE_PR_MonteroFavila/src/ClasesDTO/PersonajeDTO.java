@@ -8,8 +8,8 @@ public class PersonajeDTO {
 	private int Destreza;
 	private int Constitucion;
 	private int Oro;
-	private String tipoPersonaje;
-
+	
+	
 	public String getNombre() {
 		return Nombre;
 	}
@@ -66,16 +66,10 @@ public class PersonajeDTO {
 		Oro = oro;
 	}
 
-	public String getTipoPersonaje() {
-		return tipoPersonaje;
-	}
+	
 
-	public void setTipoPersonaje(String tipoPersonaje) {
-		this.tipoPersonaje = tipoPersonaje;
-	}
-
-	public PersonajeDTO(String Nombre, int Nivel, int Vida, int Fuerza, int Destreza, int Constitucion, int Oro,
-			String tipoPersonaje) {
+	public PersonajeDTO(String Nombre, int Nivel, int Vida, int Fuerza, int Destreza, int Constitucion, int Oro
+		) {
 		this.Nombre = Nombre;
 		this.Nivel = Nivel;
 		this.Vida = Vida;
@@ -83,13 +77,13 @@ public class PersonajeDTO {
 		this.Destreza = Destreza;
 		this.Constitucion = Constitucion;
 		this.Oro = Oro;
-		this.tipoPersonaje = "Personaje";
+		
 	}
 
 	@Override
 	public String toString() {
 		return this.Nombre + " " + this.Nivel + " " + this.Vida + " " + this.Fuerza + " " + this.Fuerza + " "
-				+ this.Destreza + " " + this.Constitucion + " " + this.Oro + " " + this.tipoPersonaje;
+				+ this.Destreza + " " + this.Constitucion + " " + this.Oro + " " ;
 	}
 
 }

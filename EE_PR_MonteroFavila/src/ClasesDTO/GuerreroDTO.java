@@ -52,12 +52,11 @@ public class GuerreroDTO extends PersonajeDTO {
 
 	public GuerreroDTO(String Nombre, int Nivel, int Vida, int Fuerza, int Destreza, int Constitucion, int Oro,
 			String tipoPersonaje, int modoBerserker, int bonificacionArmaligera, int bonificacionArmapesada) {
-		super(Nombre, Nivel, Vida, Fuerza, Destreza, Constitucion, Oro, tipoPersonaje);
+		super(Nombre, Nivel, Vida, Fuerza, Destreza, Constitucion, Oro);
 		this.modoBerserker=modoBerserker;
 		this.bonificacionArmaligera =bonificacionArmaligera;
 		this.bonificacionArmapesada = bonificacionArmapesada;
-		//tenog dudas de como maracar si es un tipo de guerrero o mago etc.
-				//this.getTipoPersonaje()!!!!!!!!!
+		
 		
 	}
 	

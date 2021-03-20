@@ -32,13 +32,12 @@ public class PicaroDTO extends PersonajeDTO {
 
 	public PicaroDTO(String Nombre, int Nivel, int Vida, int Fuerza, int Destreza, int Constitucion, int Oro,
 			String tipoPersonaje, int Esconder, int abrirCerradura, int ataqueFurtivo) {
-		super(Nombre, Nivel, Vida, Fuerza, Destreza, Constitucion, Oro, tipoPersonaje);
+		super(Nombre, Nivel, Vida, Fuerza, Destreza, Constitucion, Oro);
 		this.Esconder = Esconder;
 		this.abrirCerradura= abrirCerradura;
 		this.ataqueFurtivo= ataqueFurtivo;
 		
-		//tenog dudas de como maracar si es un tipo de guerrero o mago etc.
-		//this.getTipoPersonaje()!!!!!!!!!
+		
 		
 	}
 
