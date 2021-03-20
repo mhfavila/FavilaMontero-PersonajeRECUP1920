@@ -50,9 +50,9 @@ public class GuerreroDTO extends PersonajeDTO {
 
 
 
-	public GuerreroDTO(String Nombre, int Nivel, int Vida, int Fuerza, int Destreza, int Constitucion, int Oro,
+	public GuerreroDTO(String Nombre, int Nivel, int Vida, int Fuerza, int Destreza, int Constitucion,int Inteligencia, int Oro,
 			String tipoPersonaje, int modoBerserker, int bonificacionArmaligera, int bonificacionArmapesada) {
-		super(Nombre, Nivel, Vida, Fuerza, Destreza, Constitucion, Oro);
+		super(Nombre, Nivel, Vida, Fuerza, Destreza, Constitucion, Inteligencia,Oro);
 		this.modoBerserker=modoBerserker;
 		this.bonificacionArmaligera =bonificacionArmaligera;
 		this.bonificacionArmapesada = bonificacionArmapesada;

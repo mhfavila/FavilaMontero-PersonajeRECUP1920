@@ -30,9 +30,9 @@ public class PicaroDTO extends PersonajeDTO {
 		this.ataqueFurtivo = ataqueFurtivo;
 	}
 
-	public PicaroDTO(String Nombre, int Nivel, int Vida, int Fuerza, int Destreza, int Constitucion, int Oro,
+	public PicaroDTO(String Nombre, int Nivel, int Vida, int Fuerza, int Destreza, int Constitucion,int Inteligencia, int Oro,
 			String tipoPersonaje, int Esconder, int abrirCerradura, int ataqueFurtivo) {
-		super(Nombre, Nivel, Vida, Fuerza, Destreza, Constitucion, Oro);
+		super(Nombre, Nivel, Vida, Fuerza, Destreza, Constitucion,Inteligencia, Oro);
 		this.Esconder = Esconder;
 		this.abrirCerradura= abrirCerradura;
 		this.ataqueFurtivo= ataqueFurtivo;

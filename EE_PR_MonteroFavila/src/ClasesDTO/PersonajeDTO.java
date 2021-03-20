@@ -7,6 +7,7 @@ public class PersonajeDTO {
 	private int Fuerza;
 	private int Destreza;
 	private int Constitucion;
+	private int Inteligencia;
 	private int Oro;
 	
 	
@@ -58,6 +59,14 @@ public class PersonajeDTO {
 		Constitucion = constitucion;
 	}
 
+	
+	public int getInteligencia() {
+		return Inteligencia;
+	}
+
+	public void setInteligencia(int inteligencia) {
+		Inteligencia = inteligencia;
+	}
 	public int getOro() {
 		return Oro;
 	}
@@ -68,7 +77,7 @@ public class PersonajeDTO {
 
 	
 
-	public PersonajeDTO(String Nombre, int Nivel, int Vida, int Fuerza, int Destreza, int Constitucion, int Oro
+	public PersonajeDTO(String Nombre, int Nivel, int Vida, int Fuerza, int Destreza, int Constitucion,int Inteligencia, int Oro
 		) {
 		this.Nombre = Nombre;
 		this.Nivel = Nivel;
@@ -76,14 +85,19 @@ public class PersonajeDTO {
 		this.Fuerza = Fuerza;
 		this.Destreza = Destreza;
 		this.Constitucion = Constitucion;
+		this.Inteligencia = Inteligencia;
 		this.Oro = Oro;
 		
 	}
-
+	
+	public PersonajeDTO() {
+			
+			
+		}
 	@Override
 	public String toString() {
 		return this.Nombre + " " + this.Nivel + " " + this.Vida + " " + this.Fuerza + " " + this.Fuerza + " "
-				+ this.Destreza + " " + this.Constitucion + " " + this.Oro + " " ;
+				+ this.Destreza + " " + this.Constitucion + " "+this.Inteligencia +" "+ this.Oro + " " ;
 	}
 
 }
