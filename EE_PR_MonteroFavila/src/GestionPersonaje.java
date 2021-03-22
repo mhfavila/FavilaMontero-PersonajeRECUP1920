@@ -1,7 +1,6 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-
 import ClasesDTO.PersonajeDTO;
 
 public class GestionPersonaje {
@@ -20,6 +19,8 @@ public class GestionPersonaje {
 	/**
 	 * añadimos un nuevo personaje
 	 */
+	
+	
 	public void nuevoPersonaje() {
 		Scanner sc = new Scanner(System.in);
 
@@ -45,6 +46,8 @@ public class GestionPersonaje {
 		listaPersonajes.add(personaje);
 
 	}
+	//---------------------------------------------------------------------------------------------------------------------------
+
 	/**
 	 * cargamos los personajes que ya tenemos creados
 	 */
@@ -78,6 +81,14 @@ public class GestionPersonaje {
 
 	}
 
+	
+	
+	
+	//---------------------------------------------------------------------------------------------------------------------------
+	
+	
+	
+	
 	/**
 	 * para mostrar la lista de personajes
 	 */
@@ -86,66 +97,66 @@ public class GestionPersonaje {
 		for (int i = 0; i < listaPersonajes.size(); i++) {
 			PersonajeDTO aux = listaPersonajes.get(i);
 			System.out.println(aux.toString());
-			//System.out.println(aux.getNombre());
+			// System.out.println(aux.getNombre());
 		}
 	}
+
+	
+	//---------------------------------------------------------------------------------------------------------------------------
+	
+	
+	
 	
 	/**
 	 * Buscaremos el nombre del personaje el cual le pasaremos como parametro
+	 * 
 	 * @param Nombre
 	 * @return
 	 */
 	public PersonajeDTO Buscar(String Nombre) {
-		for(int i=0;i<listaPersonajes.size();i++) {
-			PersonajeDTO aux=listaPersonajes.get(i);
-			if(Nombre==aux.getNombre()) {
+		for (int i = 0; i < listaPersonajes.size(); i++) {
+			PersonajeDTO aux = listaPersonajes.get(i);
+			if (Nombre == aux.getNombre()) {
 				return aux;
 			}
 		}
 		return null;
-		
 
 	}
-	//prueba para modificar datos de un personaje
-	public void BuscarInfo(String Nombre) {
-		for(int i=0;i<listaPersonajes.size();i++) {
-			PersonajeDTO aux=listaPersonajes.get(i);
-			if(Nombre==aux.getNombre()) {
-				System.out.println("Nombre|Nivel|Vida|Fuerza|Destreza|Constitucion|Inteligencia|Oro");
-				System.out.println(aux.toString());
-				
-			}else {
-				System.out.println("No se ha encontrado el nombre");
-			}
-		}
-		
-		
+	
+	//---------------------------------------------------------------------------------------------------------------------------
+	
+	
+	
+	
 
-	}
 	/**
 	 * sacamos la informacion de un personaje segun su nombre que le hemos pasado
+	 * 
 	 * @param Nombre
 	 */
-	public void informacionPersonaje(String Nombre){
+	public void informacionPersonaje(String Nombre) {
 		System.out.println("Nombre|Nivel|Vida|Fuerza|Destreza|Constitucion|Inteligencia|Oro");
-		PersonajeDTO aux=Buscar(Nombre);
+		PersonajeDTO aux = BuscarPersonaje(Nombre);
+		// PersonajeDTO aux = Buscar(Nombre);
 		System.out.println(aux.toString());
-		
+
 	}
 	
 	
+	//---------------------------------------------------------------------------------------------------------------------------
 	
 	
 	
 	
-	
-	
-	public void modificarDatos(String Nombre,int Nivel,int Vida,int Fuerza,int Destreza,int Constitucion,int Inteligencia,int Oro) {
-		
-		for(int i=0;i<listaPersonajes.size();i++) {
-			PersonajeDTO aux=listaPersonajes.get(i);
-			if(Nombre==aux.getNombre()) {
-				
+
+	public void modificarDatos(String Nombre, int Nivel, int Vida, int Fuerza, int Destreza, int Constitucion,
+			int Inteligencia, int Oro) {
+
+		for (int i = 0; i < listaPersonajes.size(); i++) {
+			PersonajeDTO aux = listaPersonajes.get(i);
+			if (Nombre == aux.getNombre()) {
+
 				aux.setNivel(Nivel);
 				aux.setVida(Vida);
 				aux.setFuerza(Fuerza);
@@ -155,54 +166,95 @@ public class GestionPersonaje {
 				aux.setOro(Oro);
 				System.out.println(aux.toString());
 				mostrarListaPesonajes();
-			
+
 			}
 		}
-		
+
 	}
 	
+	
+	//---------------------------------------------------------------------------------------------------------------------------
+
 	public void modificarPersonaje(String Nombre) {
 		Boolean modificado = false;
-		for(int i=0;i<listaPersonajes.size();i++) {
-			PersonajeDTO aux=Buscar(Nombre);
-			if(Nombre==aux.getNombre()) {
+		for (int i = 0; i < listaPersonajes.size(); i++) {
+			PersonajeDTO aux = Buscar(Nombre);
+			if (Nombre == aux.getNombre()) {
 				System.out.println("Nombre|Nivel|Vida|Fuerza|Destreza|Constitucion|Inteligencia|Oro");
 				System.out.println(aux.toString());
-				
-			
-			
+
 				do {
-	
+
 					System.out.println("1. Modificar Nivel");
 					System.out.println("2. Modificar Vida");
-					
-					switch(sc.nextInt()) {
-						case 1:
-							System.out.print("Nueva Nivel: ");
-							int nivel=sc.nextInt();
-							listaPersonajes.get(i).setNivel(nivel);
-							break;
-						case 2:
-							System.out.print("Nuevo Vida: ");
-							int vida=sc.nextInt();
-							listaPersonajes.get(i).setVida(vida);
-							break;
+
+					switch (sc.nextInt()) {
+					case 1:
+						System.out.print("Nueva Nivel: ");
+						int nivel = sc.nextInt();
+						listaPersonajes.get(i).setNivel(nivel);
+						break;
+					case 2:
+						System.out.print("Nuevo Vida: ");
+						int vida = sc.nextInt();
+						listaPersonajes.get(i).setVida(vida);
+						break;
 					}
-					
-					modificado=true;
+
+					modificado = true;
 					System.out.print("Has terminado? (S/N):");
-					sc.nextLine();					
-				}while(sc.nextLine().equalsIgnoreCase("N"));
+					sc.nextLine();
+				} while (sc.nextLine().equalsIgnoreCase("N"));
 				break;
 			}
 		}
-		if(!modificado) {
+		if (!modificado) {
 			System.out.println("Personaje no encontrado");
 		}
 	}
-	
-	
-	
-	
-}
 
+	
+	
+	//---------------------------------------------------------------------------------------------------------------------------
+	
+	
+	
+	
+	public void eliminarPersonaje(String Nombre) {
+
+		for (int i = 0; i < listaPersonajes.size(); i++) {
+			PersonajeDTO aux = listaPersonajes.get(i);  //al utilizar esta si que me funciona y lo elimina pero como que se salta uno y me pone que no se a encontrado el nombre pero si que lo elimina
+			 //PersonajeDTO aux = BuscarPersonaje(Nombre);
+			if (Nombre == aux.getNombre()) {
+				listaPersonajes.remove(i);
+				System.out.println("Personaje Eliminado");
+			} else {
+				System.out.println("No se ha encontrado");
+			}
+		}
+
+	}
+	
+	
+	//---------------------------------------------------------------------------------------------------------------------------
+
+	// prueba jona
+	public PersonajeDTO BuscarPersonaje(String nombre) {
+		PersonajeDTO aDevolver = null;
+
+		boolean encontrado = false;
+		for (int i = 0; i < this.listaPersonajes.size(); i++) {
+			if (this.listaPersonajes.get(i).getNombre().equals(nombre)) {
+				System.out.println(this.listaPersonajes.get(i).toString());
+				aDevolver = this.listaPersonajes.get(i);
+				encontrado = true;
+			}
+		}
+
+		if (!encontrado) {
+			System.out.println("No se ha encontrado el personaje: " + nombre);
+		}
+
+		return aDevolver;
+	}
+}
