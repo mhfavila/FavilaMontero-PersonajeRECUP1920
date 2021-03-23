@@ -57,8 +57,8 @@ public class MagoDTO extends PersonajeDTO {
 
 
 	public MagoDTO(String Nombre, int Nivel, int Vida, int Fuerza, int Destreza, int Constitucion,int Inteligencia, int Oro,
-			String tipoPersonaje, int bonificacionPiromancia, int bonificacionNigromancia, int bonificacionIlusion, int bonificacionTransmutación) {
-		super(Nombre, Nivel, Vida, Fuerza, Destreza, Constitucion,Inteligencia, Oro);
+			String Tipo, int bonificacionPiromancia, int bonificacionNigromancia, int bonificacionIlusion, int bonificacionTransmutación) {
+		super(Nombre, Nivel, Vida, Fuerza, Destreza, Constitucion,Inteligencia, Oro,Tipo);
 		this.bonificacionPiromancia = bonificacionPiromancia;
 		this.bonificacionNigromancia =bonificacionNigromancia;
 		this.bonificacionIlusion=bonificacionIlusion;

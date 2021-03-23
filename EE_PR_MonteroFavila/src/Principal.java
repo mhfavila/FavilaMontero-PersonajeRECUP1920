@@ -19,28 +19,78 @@ public class Principal {
 		 * gp.cargarPersonaje(); 
 		 * gp.nuevoPersonaje(); 
 		 * gp.mostrarListaPesonajes();
-		 * gp.informacionPersonaje("DAN");
+		 * gp.informacionPersonaje("DAN"); 
+		 * gp.eliminarPersonaje("DAN");//da fallo pero lo borra, no funciona cundo pide el nombre
 		 */
-		
-		gp.cargarPersonaje();
+		int eleccion = 0;
+		do {
+			System.out.println("1. Cargar los personajes(los que ya estan creados como predefinidos");
+			System.out.println("2. Nuevo personaje");
+			System.out.println("3. Lista de personajes");
+			System.out.println("4. Informacion de los personajes.");
+			System.out.println("5. eliminar personaje");
+			System.out.println("6. Modificar ");
+
+			eleccion = sc.nextInt();
+
+			switch (eleccion) {
+			case 1:
+				gp.cargarPersonaje();
+				System.out.println("Personajes cargados");
+				break;
+			case 2:
+				gp.nuevoPersonaje();
+				break;
+			case 3:
+				gp.mostrarListaPesonajes();
+				break;
+			case 4:
+				String nombre;
+				System.out.println("Introduce el nombre del personaje");
+				//nombre=sc.nextLine();
+				nombre="goku";
+				
+				gp.informacionPersonaje(nombre); 
+				break;
+			case 5:
+				String nombreeli;
+				System.out.println("Introduce el nombre del personaje");
+				//nombreeli=sc.nextLine();//no coje este escaner
+				nombreeli="goku";
+				gp.eliminarPersonaje(nombreeli);
+				break;
+			case 6:
+				System.out.println("No hay nada demomento ");
+				break;
+
+			}
+		} while (eleccion != 0);
+
+		/*gp.cargarPersonaje();
 		System.out.println("Personajes cargados");
 		System.out.println("-----------");
-		System.out.println("Lista de personajes");
-		gp.mostrarListaPesonajes();
-		
+		System.out.println("Introduce un nombre");
+		String nombre = sc.nextLine();
+
+		System.out.println(nombre);
+		System.out.println("se va a eliminar");
+		gp.eliminarPersonaje(nombre);
+		System.out.println("se ha eliminado");
 		System.out.println("-----------");
-		gp.eliminarPersonaje("DAN");
-		System.out.println("Eliminar");
-		System.out.println("-----------");
-		System.out.println("Lista de personajes");
-		gp.mostrarListaPesonajes();
-		System.out.println("Lista de personajes");		
-		gp.mostrarListaPesonajes();
-		
-	
-		
-		
-		
+		System.out.println("Lista");
+		gp.mostrarListaPesonajes();*/
+
+		/*
+		 * System.out.println("Lista de personajes"); gp.mostrarListaPesonajes();
+		 * System.out.println("-----------"); gp.eliminarPersonaje("DAN");
+		 * gp.mostrarListaPesonajes(); System.out.println("-----------");
+		 * gp.informacionPersonaje("goku");*?
+		 * 
+		 * /*System.out.println("-----------"); gp.eliminarPersonaje("DAN");
+		 * System.out.println("Eliminar"); System.out.println("-----------");
+		 * System.out.println("Lista de personajes"); gp.mostrarListaPesonajes();
+		 * System.out.println("Lista de personajes"); gp.mostrarListaPesonajes();
+		 */
 
 	}
 

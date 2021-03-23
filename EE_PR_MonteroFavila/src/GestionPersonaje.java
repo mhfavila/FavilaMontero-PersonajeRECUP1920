@@ -42,6 +42,8 @@ public class GestionPersonaje {
 		personaje.setInteligencia(sc.nextInt());
 		System.out.print("Oro: ");
 		personaje.setOro(sc.nextInt());
+		System.out.print("Tipo de Personaje: Picaro,Mago o Guerrero");
+		personaje.setTipo(sc.nextLine());//no coje el tipo
 
 		listaPersonajes.add(personaje);
 
@@ -61,10 +63,12 @@ public class GestionPersonaje {
 		personaje.setConstitucion(50);
 		personaje.setInteligencia(50);
 		personaje.setOro(50);
+		personaje.setTipo("Mago");
 
-		// Nose si aqui hay que poner el tipo de personaje
+		
 
 		listaPersonajes.add(personaje);
+		
 		PersonajeDTO personaje1 = new PersonajeDTO();
 		personaje1.setNombre("DAN");
 		personaje1.setNivel(100);
@@ -74,11 +78,28 @@ public class GestionPersonaje {
 		personaje1.setConstitucion(20);
 		personaje1.setInteligencia(50);
 		personaje1.setOro(90);
+		personaje1.setTipo("Picaro");
 
-		// Nose si aqui hay que poner el tipo de personaje
+		
 
 		listaPersonajes.add(personaje1);
+		
+		PersonajeDTO personaje2 = new PersonajeDTO();
+		personaje2.setNombre("PACO");
+		personaje2.setNivel(100);
+		personaje2.setVida(100);
+		personaje2.setFuerza(10);
+		personaje2.setDestreza(20);
+		personaje2.setConstitucion(20);
+		personaje2.setInteligencia(80);
+		personaje2.setOro(100);
+		personaje2.setTipo("mago");
 
+		
+
+		listaPersonajes.add(personaje2);
+
+		
 	}
 
 	
@@ -93,7 +114,7 @@ public class GestionPersonaje {
 	 * para mostrar la lista de personajes
 	 */
 	public void mostrarListaPesonajes() {
-		System.out.println("Nombre|Nivel|Vida|Fuerza|Destreza|Constitucion|Inteligencia|Oro");
+		System.out.println("Nombre|Nivel|Vida|Fuerza|Destreza|Constitucion|Inteligencia|Oro|Tipo");
 		for (int i = 0; i < listaPersonajes.size(); i++) {
 			PersonajeDTO aux = listaPersonajes.get(i);
 			System.out.println(aux.toString());
@@ -136,9 +157,9 @@ public class GestionPersonaje {
 	 * @param Nombre
 	 */
 	public void informacionPersonaje(String Nombre) {
-		System.out.println("Nombre|Nivel|Vida|Fuerza|Destreza|Constitucion|Inteligencia|Oro");
-		PersonajeDTO aux = BuscarPersonaje(Nombre);
-		// PersonajeDTO aux = Buscar(Nombre);
+		System.out.println("Nombre|Nivel|Vida|Fuerza|Destreza|Constitucion|Inteligencia|Oro|Tipo");
+		//PersonajeDTO aux = BuscarPersonaje(Nombre);//si uso esta me lo saca dos veces
+		PersonajeDTO aux = Buscar(Nombre);//si uso esta me lo saca bien
 		System.out.println(aux.toString());
 
 	}
@@ -151,7 +172,7 @@ public class GestionPersonaje {
 	
 
 	public void modificarDatos(String Nombre, int Nivel, int Vida, int Fuerza, int Destreza, int Constitucion,
-			int Inteligencia, int Oro) {
+			int Inteligencia, int Oro,String Tipo) {
 
 		for (int i = 0; i < listaPersonajes.size(); i++) {
 			PersonajeDTO aux = listaPersonajes.get(i);
@@ -164,6 +185,7 @@ public class GestionPersonaje {
 				aux.setConstitucion(Constitucion);
 				aux.setInteligencia(Inteligencia);
 				aux.setOro(Oro);
+				aux.setTipo(Tipo);
 				System.out.println(aux.toString());
 				mostrarListaPesonajes();
 
@@ -174,13 +196,13 @@ public class GestionPersonaje {
 	
 	
 	//---------------------------------------------------------------------------------------------------------------------------
-
+//prueba pero no funciona 
 	public void modificarPersonaje(String Nombre) {
 		Boolean modificado = false;
 		for (int i = 0; i < listaPersonajes.size(); i++) {
 			PersonajeDTO aux = Buscar(Nombre);
 			if (Nombre == aux.getNombre()) {
-				System.out.println("Nombre|Nivel|Vida|Fuerza|Destreza|Constitucion|Inteligencia|Oro");
+				System.out.println("Nombre|Nivel|Vida|Fuerza|Destreza|Constitucion|Inteligencia|Oro|Tipo");
 				System.out.println(aux.toString());
 
 				do {
@@ -225,6 +247,7 @@ public class GestionPersonaje {
 		for (int i = 0; i < listaPersonajes.size(); i++) {
 			PersonajeDTO aux = listaPersonajes.get(i);  //al utilizar esta si que me funciona y lo elimina pero como que se salta uno y me pone que no se a encontrado el nombre pero si que lo elimina
 			 //PersonajeDTO aux = BuscarPersonaje(Nombre);
+			 //PersonajeDTO aux = Buscar(Nombre);
 			if (Nombre == aux.getNombre()) {
 				listaPersonajes.remove(i);
 				System.out.println("Personaje Eliminado");
