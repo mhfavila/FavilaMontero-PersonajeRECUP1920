@@ -1,7 +1,9 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import ClasesDTO.GuerreroDTO;
 import ClasesDTO.PersonajeDTO;
+import ClasesDTO.PicaroDTO;
 
 public class GestionPersonaje {
 	Scanner sc = new Scanner(System.in);
@@ -23,8 +25,45 @@ public class GestionPersonaje {
 	
 	public void nuevoPersonaje() {
 		Scanner sc = new Scanner(System.in);
+		String tipoPersonaje = "";
+		System.out.print("Tipo de Personaje: Picaro,Mago o Guerrero");
+		tipoPersonaje = sc.nextLine();
+		switch(tipoPersonaje) {
+		case "Picaro":
+			PicaroDTO picaro = new PicaroDTO();
+			System.out.print("Nombre: ");
+			picaro.setNombre(sc.nextLine());
+			System.out.print("Nivel: ");
+			picaro.setNivel(sc.nextInt());
+			System.out.print("Vida: ");
+			picaro.setVida(sc.nextInt());
+			System.out.print("Fuerza: ");
+			picaro.setFuerza(sc.nextInt());
+			System.out.print("Destreza: ");
+			picaro.setDestreza(sc.nextInt());
+			System.out.print("Constitucion: ");
+			picaro.setConstitucion(sc.nextInt());
+			System.out.print("Inteligencia: ");
+			picaro.setInteligencia(sc.nextInt());
+			System.out.print("Oro: ");
+			picaro.setOro(sc.nextInt());
+			System.out.print("Abrir Cerradura: ");
+			picaro.setAbrirCerradura(sc.nextInt());
+			System.out.print("Ataque Furtivo: ");
+			picaro.setAtaqueFurtivo(sc.nextInt());
+			System.out.print("Esconder: ");
+			picaro.setEsconder(sc.nextInt());
+			picaro.setTipo(tipoPersonaje);
+			
+			listaPersonajes.add(picaro);
+			
+			break;
+			//AÑADIR PERSONAJE MAGO Y GUERRERO
+		}
+		
+		
 
-		PersonajeDTO personaje = new PersonajeDTO();
+		/*PersonajeDTO personaje = new PersonajeDTO();
 
 		System.out.print("Nombre: ");
 		personaje.setNombre(sc.nextLine());
@@ -45,7 +84,7 @@ public class GestionPersonaje {
 		System.out.print("Tipo de Personaje: Picaro,Mago o Guerrero");
 		personaje.setTipo(sc.nextLine());//no coje el tipo
 
-		listaPersonajes.add(personaje);
+		listaPersonajes.add(personaje);*/
 
 	}
 	//---------------------------------------------------------------------------------------------------------------------------
@@ -54,7 +93,8 @@ public class GestionPersonaje {
 	 * cargamos los personajes que ya tenemos creados
 	 */
 	public void cargarPersonaje() {
-		PersonajeDTO personaje = new PersonajeDTO();
+	
+		GuerreroDTO personaje = new GuerreroDTO();
 		personaje.setNombre("goku");
 		personaje.setNivel(10);
 		personaje.setVida(100);
@@ -63,13 +103,16 @@ public class GestionPersonaje {
 		personaje.setConstitucion(50);
 		personaje.setInteligencia(50);
 		personaje.setOro(50);
-		personaje.setTipo("Mago");
+		personaje.setTipo("Guerrero");
+		personaje.setModoBerserker(9);
+		personaje.setBonificacionArmaligera(50);
+		personaje.setBonificacionArmapesada(10);
 
-		
+		//crear mas personajes como el primero
 
 		listaPersonajes.add(personaje);
 		
-		PersonajeDTO personaje1 = new PersonajeDTO();
+		PicaroDTO personaje1 = new PicaroDTO();
 		personaje1.setNombre("DAN");
 		personaje1.setNivel(100);
 		personaje1.setVida(100);
@@ -136,8 +179,9 @@ public class GestionPersonaje {
 	 */
 	public PersonajeDTO Buscar(String Nombre) {
 		for (int i = 0; i < listaPersonajes.size(); i++) {
+			
 			PersonajeDTO aux = listaPersonajes.get(i);
-			if (Nombre == aux.getNombre()) {
+			if (Nombre.equals( aux.getNombre())) {
 				return aux;
 			}
 		}
@@ -158,8 +202,8 @@ public class GestionPersonaje {
 	 */
 	public void informacionPersonaje(String Nombre) {
 		System.out.println("Nombre|Nivel|Vida|Fuerza|Destreza|Constitucion|Inteligencia|Oro|Tipo");
-		//PersonajeDTO aux = BuscarPersonaje(Nombre);//si uso esta me lo saca dos veces
-		PersonajeDTO aux = Buscar(Nombre);//si uso esta me lo saca bien
+		
+		PersonajeDTO aux = Buscar(Nombre);
 		System.out.println(aux.toString());
 
 	}
@@ -171,26 +215,29 @@ public class GestionPersonaje {
 	
 	
 
-	public void modificarDatos(String Nombre, int Nivel, int Vida, int Fuerza, int Destreza, int Constitucion,
-			int Inteligencia, int Oro,String Tipo) {
-
-		for (int i = 0; i < listaPersonajes.size(); i++) {
-			PersonajeDTO aux = listaPersonajes.get(i);
-			if (Nombre == aux.getNombre()) {
-
-				aux.setNivel(Nivel);
-				aux.setVida(Vida);
-				aux.setFuerza(Fuerza);
-				aux.setDestreza(Destreza);
-				aux.setConstitucion(Constitucion);
-				aux.setInteligencia(Inteligencia);
-				aux.setOro(Oro);
-				aux.setTipo(Tipo);
-				System.out.println(aux.toString());
-				mostrarListaPesonajes();
-
-			}
+	public void modificarDatos(String Nombre) {
+		
+		PersonajeDTO aux = Buscar(Nombre);
+		switch(aux.getTipo()) {
+		case "Picaro":
+			PicaroDTO picaro = (PicaroDTO) aux;
+			System.out.println("Elige una opcion: ");
+			System.out.println("1.Nivel: ");
+			System.out.println("2.Vida:");
+			int opcion = sc.nextInt();
+				switch(opcion) {
+				case 1:
+					System.out.println("Introduce el nuevo nivel");
+					int nivel = sc.nextInt();
+					picaro.setNivel(nivel);
+					break;
+				}
+			
+			break;
+		
 		}
+		
+		
 
 	}
 	

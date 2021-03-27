@@ -59,5 +59,11 @@ public class GuerreroDTO extends PersonajeDTO {
 		
 		
 	}
+	public GuerreroDTO() {
+		super();
+		
+		
+		
+	}
 	
 }

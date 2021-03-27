@@ -40,5 +40,12 @@ public class PicaroDTO extends PersonajeDTO {
 		
 		
 	}
+	public PicaroDTO() {
+		super();
+		
+		
+		
+		
+	}
 
 }

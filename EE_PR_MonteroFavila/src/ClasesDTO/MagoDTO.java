@@ -66,5 +66,11 @@ public class MagoDTO extends PersonajeDTO {
 		
 	
 	}
+	public MagoDTO() {
+		super();
+		
+		
+	
+	}
 
 }

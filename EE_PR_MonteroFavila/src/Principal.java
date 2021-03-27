@@ -47,8 +47,9 @@ public class Principal {
 			case 4:
 				String nombre;
 				System.out.println("Introduce el nombre del personaje");
-				//nombre=sc.nextLine();
-				nombre="goku";
+				sc.nextLine();//para que pida vien el nombre
+				nombre=sc.nextLine();
+				//nombre="goku";
 				
 				gp.informacionPersonaje(nombre); 
 				break;
@@ -60,7 +61,13 @@ public class Principal {
 				gp.eliminarPersonaje(nombreeli);
 				break;
 			case 6:
-				System.out.println("No hay nada demomento ");
+				String nombre1;
+				System.out.println("Introduce el nombre del personaje");
+				sc.nextLine();//para que pida vien el nombre
+				nombre1=sc.nextLine();
+				//nombre="goku";
+				
+				gp.modificarDatos(nombre1);
 				break;
 
 			}
