@@ -413,44 +413,7 @@ public class GestionPersonaje {
 	}
 
 	// ---------------------------------------------------------------------------------------------------------------------------
-//prueba pero no funciona 
-	public void modificarPersonaje(String Nombre) {
-		Boolean modificado = false;
-		for (int i = 0; i < listaPersonajes.size(); i++) {
-			PersonajeDTO aux = Buscar(Nombre);
-			if (Nombre == aux.getNombre()) {
-				System.out.println("Nombre|Nivel|Vida|Fuerza|Destreza|Constitucion|Inteligencia|Oro|Tipo");
-				System.out.println(aux.toString());
 
-				do {
-
-					System.out.println("1. Modificar Nivel");
-					System.out.println("2. Modificar Vida");
-
-					switch (sc.nextInt()) {
-					case 1:
-						System.out.print("Nueva Nivel: ");
-						int nivel = sc.nextInt();
-						listaPersonajes.get(i).setNivel(nivel);
-						break;
-					case 2:
-						System.out.print("Nuevo Vida: ");
-						int vida = sc.nextInt();
-						listaPersonajes.get(i).setVida(vida);
-						break;
-					}
-
-					modificado = true;
-					System.out.print("Has terminado? (S/N):");
-					sc.nextLine();
-				} while (sc.nextLine().equalsIgnoreCase("N"));
-				break;
-			}
-		}
-		if (!modificado) {
-			System.out.println("Personaje no encontrado");
-		}
-	}
 
 	// ---------------------------------------------------------------------------------------------------------------------------
 
