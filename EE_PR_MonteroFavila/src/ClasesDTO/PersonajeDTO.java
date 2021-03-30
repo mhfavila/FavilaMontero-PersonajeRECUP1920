@@ -103,7 +103,7 @@ public class PersonajeDTO {
 
 	@Override
 	public String toString() {
-		return this.Nombre + " " + this.Nivel + " " + this.Vida + " " + this.Fuerza + " " + this.Fuerza + " "
+		return this.Nombre + " " + this.Nivel + " " + this.Vida + " " + this.Fuerza + " " 
 				+ this.Destreza + " " + this.Constitucion + " " + this.Inteligencia + " " + this.Oro + " " + this.Tipo + " ";
 	}
 

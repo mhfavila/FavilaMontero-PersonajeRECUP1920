@@ -47,7 +47,7 @@ public class Principal {
 			case 4:
 				String nombre;
 				System.out.println("Introduce el nombre del personaje");
-				sc.nextLine();//para que pida vien el nombre
+				sc.nextLine();//para que pida bien el nombre
 				nombre=sc.nextLine();
 				//nombre="goku";
 				
@@ -56,8 +56,9 @@ public class Principal {
 			case 5:
 				String nombreeli;
 				System.out.println("Introduce el nombre del personaje");
-				//nombreeli=sc.nextLine();//no coje este escaner
-				nombreeli="goku";
+				
+				sc.nextLine();//para que pida bien el nombre
+				nombreeli=sc.nextLine();
 				gp.eliminarPersonaje(nombreeli);
 				break;
 			case 6:

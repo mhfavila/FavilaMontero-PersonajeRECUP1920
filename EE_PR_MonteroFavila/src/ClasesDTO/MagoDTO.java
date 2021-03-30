@@ -66,6 +66,15 @@ public class MagoDTO extends PersonajeDTO {
 		
 	
 	}
+	
+	@Override
+	public String toString() {
+		return this.getNombre() + " " + this.getNivel() + " " + this.getVida() + " " + this.getFuerza() + " " 
+				+ this.getDestreza() + " " + this.getConstitucion() + " " + this.getInteligencia() + " " + this.getOro() + " " + this.getTipo() + " "+this.bonificacionPiromancia+" "+this.bonificacionNigromancia+" "+this.bonificacionIlusion+" "+this.bonificacionTransmutación+" ";
+	}
+
+
+
 	public MagoDTO() {
 		super();
 		

@@ -209,11 +209,28 @@ public class GestionPersonaje {
 	 * para mostrar la lista de personajes
 	 */
 	public void mostrarListaPesonajes() {
-		System.out.println("Nombre|Nivel|Vida|Fuerza|Destreza|Constitucion|Inteligencia|Oro|Tipo");
+		//System.out.println("Nombre|Nivel|Vida|Fuerza|Destreza|Constitucion|Inteligencia|Oro|Tipo");
 		for (int i = 0; i < listaPersonajes.size(); i++) {
 			PersonajeDTO aux = listaPersonajes.get(i);
-			System.out.println(aux.toString());
-			// System.out.println(aux.getNombre());
+			//System.out.println(aux.toString());
+			switch (aux.getTipo()) {
+			case "Picaro":
+				System.out.println("\t  Nombre|Nivel|Vida|Fuerza|Destreza|Constitucion|Inteligencia|Oro|Tipo|Esconder|AbrirCerradura|AtaqueFurtivo");
+				PicaroDTO p =(PicaroDTO) aux;
+				System.out.println("PERSONAJE "+ i+": "+p.toString());
+				break;
+			case "Mago":
+				System.out.println("\t  Nombre|Nivel|Vida|Fuerza|Destreza|Constitucion|Inteligencia|Oro|Tipo|BonificacionPiromancia|BonificacionNigromancia|BonificacionIlusion|BonificacionTransmutación");
+				MagoDTO m = (MagoDTO) aux;
+				System.out.println("PERSONAJE "+ i+": "+m.toString());
+				
+				break;
+			case "Guerrero":
+				System.out.println("\t  Nombre|Nivel|Vida|Fuerza|Destreza|Constitucion|Inteligencia|Oro|Tipo|ModoBerserker|BonificacionArmaligera|BonificacionArmapesada");
+				GuerreroDTO g =(GuerreroDTO) aux;
+				System.out.println("PERSONAJE "+ i+": "+g.toString());
+				break;
+			}
 		}
 	}
 
@@ -245,11 +262,29 @@ public class GestionPersonaje {
 	 * @param Nombre
 	 */
 	public void informacionPersonaje(String Nombre) {
-		System.out.println("Nombre|Nivel|Vida|Fuerza|Destreza|Constitucion|Inteligencia|Oro|Tipo");
+		
 
 		PersonajeDTO aux = Buscar(Nombre);
-		System.out.println(aux.toString());
-
+		//System.out.println(aux.toString());
+		
+		switch (aux.getTipo()) {
+		case "Picaro":
+			PicaroDTO p =(PicaroDTO) aux;
+			System.out.println("Nombre|Nivel|Vida|Fuerza|Destreza|Constitucion|Inteligencia|Oro|Tipo|Esconder|AbrirCerradura|AtaqueFurtivo");
+			System.out.println(p.toString());
+			break;
+		case "Mago":
+			System.out.println("Nombre|Nivel|Vida|Fuerza|Destreza|Constitucion|Inteligencia|Oro|Tipo|BonificacionPiromancia|BonificacionNigromancia|BonificacionIlusion|BonificacionTransmutación");
+			MagoDTO m = (MagoDTO) aux;
+			System.out.println(m.toString());
+			
+			break;
+		case "Guerrero":
+			System.out.println("Nombre|Nivel|Vida|Fuerza|Destreza|Constitucion|Inteligencia|Oro|Tipo|ModoBerserker|BonificacionArmaligera|BonificacionArmapesada");
+			GuerreroDTO g =(GuerreroDTO) aux;
+			System.out.println(g.toString());
+			break;
+		}
 	}
 
 	// ---------------------------------------------------------------------------------------------------------------------------
@@ -257,8 +292,17 @@ public class GestionPersonaje {
 	public void modificarDatos(String Nombre) {
 
 		PersonajeDTO aux = Buscar(Nombre);
+		//String op = null;
+		//while(op != "s") {
+		
+		
+		//FALTA HACER UN BUCLE PARA QUE PUEDA SEGIR ELIGIENDO QUE ATRIBUTOS CAMBIAR ANTES DE SALIR
+		
+		
 		switch (aux.getTipo()) {
 		case "Picaro":
+			
+			
 			PicaroDTO picaro = (PicaroDTO) aux;
 			System.out.println("Elige una opcion: ");
 			System.out.println("1.Nivel: ");
@@ -268,7 +312,11 @@ public class GestionPersonaje {
 			System.out.println("5.Constitucion:");
 			System.out.println("6.Inteligencia:");
 			System.out.println("7.Oro:");
-			System.out.println("8.Tipo:");
+			System.out.println("8.Esconder:");
+			System.out.println("9.Abrir Cerradura:");
+			System.out.println("10.Ataque Furtivo:");
+			
+			
 
 			int opcion = sc.nextInt();
 			switch (opcion) {
@@ -281,43 +329,70 @@ public class GestionPersonaje {
 
 				System.out.println("Introduce la nueva Vida");
 				int vida = sc.nextInt();
-				picaro.setNivel(vida);
+				picaro.setVida(vida);
 				break;
 			case 3:
 
 				System.out.println("Introduce la nueva Fuerza");
 				int Fuerza = sc.nextInt();
-				picaro.setNivel(Fuerza);
+				picaro.setFuerza(Fuerza);
 				break;
 			case 4:
 				System.out.println("Introduce la nueva Destreza");
 				int Destreza = sc.nextInt();
-				picaro.setNivel(Destreza);
+				picaro.setDestreza(Destreza);
 				break;
 			case 5:
 				System.out.println("Introduce la nueva Constitucion");
 				int Constitucion = sc.nextInt();
-				picaro.setNivel(Constitucion);
+				picaro.setConstitucion(Constitucion);
 				break;
 			case 6:
 				System.out.println("Introduce la nueva Inteligencia");
 				int Inteligencia = sc.nextInt();
-				picaro.setNivel(Inteligencia);
+				picaro.setInteligencia(Inteligencia);
 				break;
 			case 7:
 				System.out.println("Introduce el nuevo Oro");
 				int Oro = sc.nextInt();
-				picaro.setNivel(Oro);
+				picaro.setOro(Oro);
+				break;
+			case 8:
+				System.out.println("Introduce el nuevo valor para Esconder");
+				int Esconder = sc.nextInt();
+				picaro.setEsconder(Esconder);
+				break;
+			case 9:
+				System.out.println("Introduce el nuevo valor para Abrir Cerradura");
+				int Cerradura = sc.nextInt();
+				picaro.setAbrirCerradura(Cerradura);
+				break;
+			case 10:
+				System.out.println("Introduce el nuevo valor para Ataque Furtivo");
+				int Furtivo = sc.nextInt();
+				picaro.setAtaqueFurtivo(Furtivo);
 				break;
 
 			}
-
+			
 			break;
+			
 		case "Mago":
 			MagoDTO mago = (MagoDTO) aux;
 			System.out.println("Elige una opcion: ");
 			System.out.println("1.Nivel: ");
 			System.out.println("2.Vida:");
+			System.out.println("3.Fuerza:");
+			System.out.println("4.Destreza:");
+			System.out.println("5.Constitucion:");
+			System.out.println("6.Inteligencia:");
+			System.out.println("7.Oro:");
+			System.out.println("8.bonificacionPiromancia;:");
+			System.out.println("9.bonificacionNigromancia:");
+			System.out.println("10.bonificacionIlusion:");
+			System.out.println("11.bonificacionTransmutación:");
+			
+			
 			int opcion1 = sc.nextInt();
 			switch (opcion1) {
 			case 1:
@@ -329,33 +404,53 @@ public class GestionPersonaje {
 
 				System.out.println("Introduce la nueva Vida");
 				int vida1 = sc.nextInt();
-				mago.setNivel(vida1);
+				mago.setVida(vida1);
 				break;
 			case 3:
 
 				System.out.println("Introduce la nueva Fuerza");
 				int Fuerza1 = sc.nextInt();
-				mago.setNivel(Fuerza1);
+				mago.setFuerza(Fuerza1);
 				break;
 			case 4:
 				System.out.println("Introduce la nueva Destreza");
 				int Destreza1 = sc.nextInt();
-				mago.setNivel(Destreza1);
+				mago.setDestreza(Destreza1);
 				break;
 			case 5:
 				System.out.println("Introduce la nueva Constitucion");
 				int Constitucion1 = sc.nextInt();
-				mago.setNivel(Constitucion1);
+				mago.setConstitucion(Constitucion1);
 				break;
 			case 6:
 				System.out.println("Introduce la nueva Inteligencia");
 				int Inteligencia1 = sc.nextInt();
-				mago.setNivel(Inteligencia1);
+				mago.setInteligencia(Inteligencia1);
 				break;
 			case 7:
 				System.out.println("Introduce el nuevo Oro");
 				int Oro1 = sc.nextInt();
-				mago.setNivel(Oro1);
+				mago.setOro(Oro1);
+				break;
+			case 8:
+				System.out.println("Introduce el nuevo valor para bonificacionPiromancia");
+				int bonificacionPiromancia = sc.nextInt();
+				mago.setBonificacionPiromancia(bonificacionPiromancia);
+				break;
+			case 9:
+				System.out.println("Introduce el nuevo valor para bonificacionNigromancia");
+				int bonificacionNigromancia = sc.nextInt();
+				mago.setBonificacionNigromancia(bonificacionNigromancia);
+				break;
+			case 10:
+				System.out.println("Introduce el nuevo valor para bonificacionIlusion");
+				int bonificacionIlusion = sc.nextInt();
+				mago.setBonificacionIlusion(bonificacionIlusion);
+				break;
+			case 11:
+				System.out.println("Introduce el nuevo valor para bonificacionTransmutación");
+				int bonificacionTransmutación = sc.nextInt();
+				mago.setBonificacionTransmutación(bonificacionTransmutación);
 				break;
 			}
 
@@ -365,6 +460,16 @@ public class GestionPersonaje {
 			System.out.println("Elige una opcion: ");
 			System.out.println("1.Nivel: ");
 			System.out.println("2.Vida:");
+			System.out.println("3.Fuerza:");
+			System.out.println("4.Destreza:");
+			System.out.println("5.Constitucion:");
+			System.out.println("6.Inteligencia:");
+			System.out.println("7.Oro:");
+			System.out.println("8.modoBerserker:");
+			System.out.println("9.bonificacionArmaligera:");
+			System.out.println("10.bonificacionArmapesada:");
+			
+			
 			int opcion2 = sc.nextInt();
 			switch (opcion2) {
 			case 1:
@@ -376,41 +481,59 @@ public class GestionPersonaje {
 
 				System.out.println("Introduce la nueva Vida");
 				int vida2 = sc.nextInt();
-				guerrero.setNivel(vida2);
+				guerrero.setVida(vida2);
 				break;
 			case 3:
 
 				System.out.println("Introduce la nueva Fuerza");
 				int Fuerza2 = sc.nextInt();
-				guerrero.setNivel(Fuerza2);
+				guerrero.setFuerza(Fuerza2);
 				break;
 			case 4:
 				System.out.println("Introduce la nueva Destreza");
 				int Destreza2 = sc.nextInt();
-				guerrero.setNivel(Destreza2);
+				guerrero.setDestreza(Destreza2);
 				break;
 			case 5:
 				System.out.println("Introduce la nueva Constitucion");
 				int Constitucion2 = sc.nextInt();
-				guerrero.setNivel(Constitucion2);
+				guerrero.setConstitucion(Constitucion2);
 				break;
 			case 6:
 				System.out.println("Introduce la nueva Inteligencia");
 				int Inteligencia2 = sc.nextInt();
-				guerrero.setNivel(Inteligencia2);
+				guerrero.setInteligencia(Inteligencia2);
 				break;
 			case 7:
 				System.out.println("Introduce el nuevo Oro");
 				int Oro2 = sc.nextInt();
-				guerrero.setNivel(Oro2);
+				guerrero.setOro(Oro2);
+				break;
+			case 8:
+				System.out.println("Introduce el nuevo valor para modoBerserker");
+				int modoBerserker = sc.nextInt();
+				guerrero.setModoBerserker(modoBerserker);
+				break;
+			case 9:
+				System.out.println("Introduce el nuevo valor para bonificacionArmaligera");
+				int bonificacionArmaligera = sc.nextInt();
+				guerrero.setBonificacionArmaligera(bonificacionArmaligera);
+				break;
+			case 10:
+				System.out.println("Introduce el nuevo valor para bonificacionArmapesada");
+				int bonificacionArmapesada = sc.nextInt();
+				guerrero.setBonificacionArmapesada(bonificacionArmapesada);
 				break;
 			}
 
 			break;
-
 		}
+		}
+		
 
-	}
+		
+
+	//}
 
 	// ---------------------------------------------------------------------------------------------------------------------------
 
@@ -424,8 +547,8 @@ public class GestionPersonaje {
 														// se salta uno y me pone que no se a encontrado el nombre pero
 														// si que lo elimina
 			// PersonajeDTO aux = BuscarPersonaje(Nombre);
-			// PersonajeDTO aux = Buscar(Nombre);
-			if (Nombre == aux.getNombre()) {
+			 //PersonajeDTO aux = Buscar(Nombre);
+			if (Nombre.equals(aux.getNombre())) {
 				listaPersonajes.remove(i);
 				System.out.println("Personaje Eliminado");
 			} else {

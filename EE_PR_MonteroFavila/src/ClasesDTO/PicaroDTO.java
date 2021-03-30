@@ -40,6 +40,15 @@ public class PicaroDTO extends PersonajeDTO {
 		
 		
 	}
+	
+	
+	@Override
+	public String toString() {
+		return this.getNombre() + " " + this.getNivel() + " " + this.getVida() + " " + this.getFuerza() + " " 
+				+ this.getDestreza() + " " + this.getConstitucion() + " " + this.getInteligencia() + " " + this.getOro() + " " + this.getTipo() + " "+this.Esconder + " " + this.abrirCerradura +" "+this.ataqueFurtivo+" ";
+	}
+	
+
 	public PicaroDTO() {
 		super();
 		
