@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import ClasesDTO.GuerreroDTO;
+import ClasesDTO.Item;
 import ClasesDTO.MagoDTO;
 import ClasesDTO.PersonajeDTO;
 import ClasesDTO.PicaroDTO;
@@ -209,26 +210,29 @@ public class GestionPersonaje {
 	 * para mostrar la lista de personajes
 	 */
 	public void mostrarListaPesonajes() {
-		//System.out.println("Nombre|Nivel|Vida|Fuerza|Destreza|Constitucion|Inteligencia|Oro|Tipo");
+		// System.out.println("Nombre|Nivel|Vida|Fuerza|Destreza|Constitucion|Inteligencia|Oro|Tipo");
 		for (int i = 0; i < listaPersonajes.size(); i++) {
 			PersonajeDTO aux = listaPersonajes.get(i);
-			//System.out.println(aux.toString());
+			// System.out.println(aux.toString());
 			switch (aux.getTipo()) {
 			case "Picaro":
-				System.out.println("\t  Nombre|Nivel|Vida|Fuerza|Destreza|Constitucion|Inteligencia|Oro|Tipo|Esconder|AbrirCerradura|AtaqueFurtivo");
-				PicaroDTO p =(PicaroDTO) aux;
-				System.out.println("PERSONAJE "+ i+": "+p.toString());
+				System.out.println(
+						"\t  Nombre|Nivel|Vida|Fuerza|Destreza|Constitucion|Inteligencia|Oro|Tipo|Esconder|AbrirCerradura|AtaqueFurtivo");
+				PicaroDTO p = (PicaroDTO) aux;
+				System.out.println("PERSONAJE " + i + ": " + p.toString());
 				break;
 			case "Mago":
-				System.out.println("\t  Nombre|Nivel|Vida|Fuerza|Destreza|Constitucion|Inteligencia|Oro|Tipo|BonificacionPiromancia|BonificacionNigromancia|BonificacionIlusion|BonificacionTransmutación");
+				System.out.println(
+						"\t  Nombre|Nivel|Vida|Fuerza|Destreza|Constitucion|Inteligencia|Oro|Tipo|BonificacionPiromancia|BonificacionNigromancia|BonificacionIlusion|BonificacionTransmutación");
 				MagoDTO m = (MagoDTO) aux;
-				System.out.println("PERSONAJE "+ i+": "+m.toString());
-				
+				System.out.println("PERSONAJE " + i + ": " + m.toString());
+
 				break;
 			case "Guerrero":
-				System.out.println("\t  Nombre|Nivel|Vida|Fuerza|Destreza|Constitucion|Inteligencia|Oro|Tipo|ModoBerserker|BonificacionArmaligera|BonificacionArmapesada");
-				GuerreroDTO g =(GuerreroDTO) aux;
-				System.out.println("PERSONAJE "+ i+": "+g.toString());
+				System.out.println(
+						"\t  Nombre|Nivel|Vida|Fuerza|Destreza|Constitucion|Inteligencia|Oro|Tipo|ModoBerserker|BonificacionArmaligera|BonificacionArmapesada");
+				GuerreroDTO g = (GuerreroDTO) aux;
+				System.out.println("PERSONAJE " + i + ": " + g.toString());
 				break;
 			}
 		}
@@ -262,26 +266,28 @@ public class GestionPersonaje {
 	 * @param Nombre
 	 */
 	public void informacionPersonaje(String Nombre) {
-		
 
 		PersonajeDTO aux = Buscar(Nombre);
-		//System.out.println(aux.toString());
-		
+		// System.out.println(aux.toString());
+
 		switch (aux.getTipo()) {
 		case "Picaro":
-			PicaroDTO p =(PicaroDTO) aux;
-			System.out.println("Nombre|Nivel|Vida|Fuerza|Destreza|Constitucion|Inteligencia|Oro|Tipo|Esconder|AbrirCerradura|AtaqueFurtivo");
+			PicaroDTO p = (PicaroDTO) aux;
+			System.out.println(
+					"Nombre|Nivel|Vida|Fuerza|Destreza|Constitucion|Inteligencia|Oro|Tipo|Esconder|AbrirCerradura|AtaqueFurtivo");
 			System.out.println(p.toString());
 			break;
 		case "Mago":
-			System.out.println("Nombre|Nivel|Vida|Fuerza|Destreza|Constitucion|Inteligencia|Oro|Tipo|BonificacionPiromancia|BonificacionNigromancia|BonificacionIlusion|BonificacionTransmutación");
+			System.out.println(
+					"Nombre|Nivel|Vida|Fuerza|Destreza|Constitucion|Inteligencia|Oro|Tipo|BonificacionPiromancia|BonificacionNigromancia|BonificacionIlusion|BonificacionTransmutación");
 			MagoDTO m = (MagoDTO) aux;
 			System.out.println(m.toString());
-			
+
 			break;
 		case "Guerrero":
-			System.out.println("Nombre|Nivel|Vida|Fuerza|Destreza|Constitucion|Inteligencia|Oro|Tipo|ModoBerserker|BonificacionArmaligera|BonificacionArmapesada");
-			GuerreroDTO g =(GuerreroDTO) aux;
+			System.out.println(
+					"Nombre|Nivel|Vida|Fuerza|Destreza|Constitucion|Inteligencia|Oro|Tipo|ModoBerserker|BonificacionArmaligera|BonificacionArmapesada");
+			GuerreroDTO g = (GuerreroDTO) aux;
 			System.out.println(g.toString());
 			break;
 		}
@@ -292,17 +298,15 @@ public class GestionPersonaje {
 	public void modificarDatos(String Nombre) {
 
 		PersonajeDTO aux = Buscar(Nombre);
-		//String op = null;
-		//while(op != "s") {
-		
-		
-		//FALTA HACER UN BUCLE PARA QUE PUEDA SEGIR ELIGIENDO QUE ATRIBUTOS CAMBIAR ANTES DE SALIR
-		
-		
+		// String op = null;
+		// while(op != "s") {
+
+		// FALTA HACER UN BUCLE PARA QUE PUEDA SEGIR ELIGIENDO QUE ATRIBUTOS CAMBIAR
+		// ANTES DE SALIR
+
 		switch (aux.getTipo()) {
 		case "Picaro":
-			
-			
+
 			PicaroDTO picaro = (PicaroDTO) aux;
 			System.out.println("Elige una opcion: ");
 			System.out.println("1.Nivel: ");
@@ -315,8 +319,6 @@ public class GestionPersonaje {
 			System.out.println("8.Esconder:");
 			System.out.println("9.Abrir Cerradura:");
 			System.out.println("10.Ataque Furtivo:");
-			
-			
 
 			int opcion = sc.nextInt();
 			switch (opcion) {
@@ -374,9 +376,9 @@ public class GestionPersonaje {
 				break;
 
 			}
-			
+
 			break;
-			
+
 		case "Mago":
 			MagoDTO mago = (MagoDTO) aux;
 			System.out.println("Elige una opcion: ");
@@ -391,8 +393,7 @@ public class GestionPersonaje {
 			System.out.println("9.bonificacionNigromancia:");
 			System.out.println("10.bonificacionIlusion:");
 			System.out.println("11.bonificacionTransmutación:");
-			
-			
+
 			int opcion1 = sc.nextInt();
 			switch (opcion1) {
 			case 1:
@@ -468,8 +469,7 @@ public class GestionPersonaje {
 			System.out.println("8.modoBerserker:");
 			System.out.println("9.bonificacionArmaligera:");
 			System.out.println("10.bonificacionArmapesada:");
-			
-			
+
 			int opcion2 = sc.nextInt();
 			switch (opcion2) {
 			case 1:
@@ -528,20 +528,16 @@ public class GestionPersonaje {
 
 			break;
 		}
-		}
-		
+	}
 
-		
-
-	//}
+	// }
 
 	// ---------------------------------------------------------------------------------------------------------------------------
-
 
 	// ---------------------------------------------------------------------------------------------------------------------------
 
 	public void eliminarPersonaje(String Nombre) {
-
+		Boolean eliminado = false;
 		for (int i = 0; i < listaPersonajes.size(); i++) {
 			PersonajeDTO aux = listaPersonajes.get(i); // al utilizar esta si que me funciona y lo elimina pero como que
 														// se salta uno y me pone que no se a encontrado el nombre pero
@@ -550,33 +546,52 @@ public class GestionPersonaje {
 			 //PersonajeDTO aux = Buscar(Nombre);
 			if (Nombre.equals(aux.getNombre())) {
 				listaPersonajes.remove(i);
-				System.out.println("Personaje Eliminado");
-			} else {
-				System.out.println("No se ha encontrado");
-			}
+				eliminado = true;
+			} 
 		}
-
+		
+		if(eliminado == true) {
+			System.out.println("Personaje eliminado");
+		}else {
+			System.out.println("No se ha encontrado");
+		}
 	}
 
 	// ---------------------------------------------------------------------------------------------------------------------------
 
-	// prueba jona
-	public PersonajeDTO BuscarPersonaje(String nombre) {
-		PersonajeDTO aDevolver = null;
+	public void agregarItem(String Nombre) {
+		Item objeto = new Item();
+		// pedir los datos de item como en los personejes
+		
+		
+		System.out.println("Nombre del Item");
+		objeto.setNombre(sc.nextLine());
+		System.out.println("Descripcion");
+		objeto.setDescripcion(sc.nextLine());
+		System.out.println("Defensa");
+		objeto.setDefensa(sc.nextInt());
+		System.out.println("Ataque");
+		objeto.setAtaque(sc.nextInt());
+		System.out.println("Magico");
+		objeto.setMagico(sc.nextInt());
+		System.out.println("Espacio");
+		objeto.setEspacio(sc.nextInt());
+		System.out.println("Precio");
+		objeto.setPrecio(sc.nextDouble());
+		System.out.println("Peso");
+		objeto.setPeso(sc.nextInt());
 
-		boolean encontrado = false;
-		for (int i = 0; i < this.listaPersonajes.size(); i++) {
-			if (this.listaPersonajes.get(i).getNombre().equals(nombre)) {
-				System.out.println(this.listaPersonajes.get(i).toString());
-				aDevolver = this.listaPersonajes.get(i);
-				encontrado = true;
-			}
-		}
-
-		if (!encontrado) {
-			System.out.println("No se ha encontrado el personaje: " + nombre);
-		}
-
-		return aDevolver;
+		PersonajeDTO aux = Buscar(Nombre);
+		aux.getInventario().getMochila().add(objeto);
 	}
+
+	// ---------------------------------------------------------------------------------------------------------------------------
+
+	public void mostrarInventario(String Nombre) {
+
+		PersonajeDTO aux = Buscar(Nombre);
+		System.out.println(aux.getInventario().toString());
+
+	}
+
 }
