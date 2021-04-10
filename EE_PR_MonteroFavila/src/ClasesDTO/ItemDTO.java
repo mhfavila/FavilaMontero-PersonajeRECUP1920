@@ -1,6 +1,6 @@
 package ClasesDTO;
 
-public class Item {
+public class ItemDTO {
 	
 	private String nombre;
     private String descripcion;
@@ -11,7 +11,7 @@ public class Item {
     private double precio;
     private int peso;
     
-	public Item(String nombre, String descripcion, int defensa, int ataque, int magico, int espacio, double precio,
+	public ItemDTO(String nombre, String descripcion, int defensa, int ataque, int magico, int espacio, double precio,
 			int peso) {
 		super();
 		this.nombre = nombre;
@@ -24,7 +24,7 @@ public class Item {
 		this.peso = peso;
 	}
 	
-	public Item() {
+	public ItemDTO() {
 		
 	}
 	
@@ -78,5 +78,14 @@ public class Item {
 	public void setPeso(int peso) {
 		this.peso = peso;
 	}
+
+	@Override
+	public String toString() {
+		return "Item [nombre=" + nombre + ", descripcion=" + descripcion + ", defensa=" + defensa + ", ataque=" + ataque
+				+ ", magico=" + magico + ", espacio=" + espacio + ", precio=" + precio + ", peso=" + peso + "]";
+	}
+	
+	
+	
 
 }

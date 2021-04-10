@@ -30,6 +30,9 @@ public class Principal {
 			System.out.println("4. Informacion de los personajes.");
 			System.out.println("5. eliminar personaje");
 			System.out.println("6. Modificar ");
+			System.out.println("7. Mostrar personaje con Inventario ");
+			System.out.println("6. Modificar ");
+			System.out.println("6. Modificar ");
 
 			eleccion = sc.nextInt();
 
@@ -70,8 +73,15 @@ public class Principal {
 				
 				gp.modificarDatos(nombre1);
 				break;
+				
+				
+			case 7:
+				gp.mostrarListaPesonajesConInventario();
+				break;
 
 			}
+			
+				
 		} while (eleccion != 0);
 
 		/*gp.cargarPersonaje();

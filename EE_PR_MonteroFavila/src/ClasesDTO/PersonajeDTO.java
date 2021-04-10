@@ -11,15 +11,15 @@ public class PersonajeDTO {
 	private int Oro;
 	private String Tipo;
 	
-	private Inventario Inventario;
+	private InventarioDTO Inventario;
 	
 	
 
-	public Inventario getInventario() {
+	public InventarioDTO getInventario() {
 		return Inventario;
 	}
 
-	public void setInventario(Inventario inventario) {
+	public void setInventario(InventarioDTO inventario) {
 		Inventario = inventario;
 	}
 
@@ -106,7 +106,7 @@ public class PersonajeDTO {
 		this.Inteligencia = Inteligencia;
 		this.Oro = Oro;
 		this.Tipo = Tipo;
-		this.Inventario = new Inventario();
+		this.Inventario = new InventarioDTO();
 
 	}
 

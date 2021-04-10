@@ -2,7 +2,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import ClasesDTO.GuerreroDTO;
-import ClasesDTO.Item;
+import ClasesDTO.InventarioDTO;
+import ClasesDTO.ItemDTO;
 import ClasesDTO.MagoDTO;
 import ClasesDTO.PersonajeDTO;
 import ClasesDTO.PicaroDTO;
@@ -163,7 +164,17 @@ public class GestionPersonaje {
 		personaje.setModoBerserker(9);
 		personaje.setBonificacionArmaligera(50);
 		personaje.setBonificacionArmapesada(10);
-
+		personaje.setInventario(new InventarioDTO());
+		ItemDTO item1 = new ItemDTO();
+		item1.setNombre("Espada");
+		item1.setDescripcion("espada pesada");
+		item1.setAtaque(10);
+		item1.setDefensa(12);
+		item1.setEspacio(1);
+		item1.setMagico(10);
+		item1.setPeso(10);
+		item1.setPrecio(20);
+		personaje.getInventario().getMochila().add(item1);
 		// crear mas personajes como el primero
 
 		listaPersonajes.add(personaje);
@@ -181,6 +192,17 @@ public class GestionPersonaje {
 		personaje1.setEsconder(90);
 		personaje1.setAbrirCerradura(40);
 		personaje1.setAtaqueFurtivo(36);
+		personaje1.setInventario(new InventarioDTO());
+		ItemDTO item2 = new ItemDTO();
+		item2.setNombre("Espada");
+		item2.setDescripcion("espada pesada");
+		item2.setAtaque(10);
+		item2.setDefensa(12);
+		item2.setEspacio(1);
+		item2.setMagico(10);
+		item2.setPeso(10);
+		item2.setPrecio(20);
+		personaje1.getInventario().getMochila().add(item2);
 
 		listaPersonajes.add(personaje1);
 
@@ -199,6 +221,18 @@ public class GestionPersonaje {
 		personaje2.setBonificacionNigromancia(23);
 		personaje2.setBonificacionIlusion(59);
 		personaje2.setBonificacionTransmutación(79);
+		
+		personaje2.setInventario(new InventarioDTO());
+		ItemDTO item3 = new ItemDTO();
+		item3.setNombre("Espada");
+		item3.setDescripcion("espada pesada");
+		item3.setAtaque(10);
+		item3.setDefensa(12);
+		item3.setEspacio(1);
+		item3.setMagico(10);
+		item3.setPeso(10);
+		item3.setPrecio(20);
+		personaje2.getInventario().getMochila().add(item3);
 
 		listaPersonajes.add(personaje2);
 
@@ -560,7 +594,7 @@ public class GestionPersonaje {
 	// ---------------------------------------------------------------------------------------------------------------------------
 
 	public void agregarItem(String Nombre) {
-		Item objeto = new Item();
+		ItemDTO objeto = new ItemDTO();
 		// pedir los datos de item como en los personejes
 		
 		
@@ -593,5 +627,90 @@ public class GestionPersonaje {
 		System.out.println(aux.getInventario().toString());
 
 	}
+	
+	
+	
+	// ---------------------------------------------------------------------------------------------------------------------------
+	
+	public void mostrarListaPesonajesConInventario() {
+		// System.out.println("Nombre|Nivel|Vida|Fuerza|Destreza|Constitucion|Inteligencia|Oro|Tipo");
+		for (int i = 0; i < listaPersonajes.size(); i++) {
+			PersonajeDTO aux = listaPersonajes.get(i);
+			// System.out.println(aux.toString());
+			switch (aux.getTipo()) {
+			case "Picaro":
+				System.out.println(
+						"\t  Nombre|Nivel|Vida|Fuerza|Destreza|Constitucion|Inteligencia|Oro|Tipo|Esconder|AbrirCerradura|AtaqueFurtivo");
+				PicaroDTO p = (PicaroDTO) aux;
+				System.out.println("PERSONAJE " + i + ": " + p.toString());
+				System.out.println(p.getInventario().toString());
+				break;
+			case "Mago":
+				System.out.println(
+						"\t  Nombre|Nivel|Vida|Fuerza|Destreza|Constitucion|Inteligencia|Oro|Tipo|BonificacionPiromancia|BonificacionNigromancia|BonificacionIlusion|BonificacionTransmutación");
+				MagoDTO m = (MagoDTO) aux;
+				System.out.println("PERSONAJE " + i + ": " + m.toString());
+				System.out.println(m.getInventario().toString());
 
+				break;
+			case "Guerrero":
+				System.out.println(
+						"\t  Nombre|Nivel|Vida|Fuerza|Destreza|Constitucion|Inteligencia|Oro|Tipo|ModoBerserker|BonificacionArmaligera|BonificacionArmapesada");
+				GuerreroDTO g = (GuerreroDTO) aux;
+				System.out.println("PERSONAJE " + i + ": " + g.toString());
+				System.out.println(g.getInventario().toString());
+				break;
+			}
+		}
+	}
+	
+	
+	
+	
+	// ---------------------------------------------------------------------------------------------------------------------------
+	
+	
+	
+	
+	public void informacionPersonajeconInventario(String Nombre) {
+
+		PersonajeDTO aux = Buscar(Nombre);
+		// System.out.println(aux.toString());
+
+		switch (aux.getTipo()) {
+		case "Picaro":
+			PicaroDTO p = (PicaroDTO) aux;
+			System.out.println(
+					"Nombre|Nivel|Vida|Fuerza|Destreza|Constitucion|Inteligencia|Oro|Tipo|Esconder|AbrirCerradura|AtaqueFurtivo");
+			System.out.println(p.toString());
+			System.out.println(p.getInventario().toString());
+			break;
+		case "Mago":
+			System.out.println(
+					"Nombre|Nivel|Vida|Fuerza|Destreza|Constitucion|Inteligencia|Oro|Tipo|BonificacionPiromancia|BonificacionNigromancia|BonificacionIlusion|BonificacionTransmutación");
+			MagoDTO m = (MagoDTO) aux;
+			System.out.println(m.toString());
+			System.out.println(m.getInventario().toString());
+
+			break;
+		case "Guerrero":
+			System.out.println(
+					"Nombre|Nivel|Vida|Fuerza|Destreza|Constitucion|Inteligencia|Oro|Tipo|ModoBerserker|BonificacionArmaligera|BonificacionArmapesada");
+			GuerreroDTO g = (GuerreroDTO) aux;
+			System.out.println(g.toString());
+			System.out.println(g.getInventario().toString());
+			break;
+		}
+	}
+
+	
+	// ---------------------------------------------------------------------------------------------------------------------------
+	
+	
+	
+	
+	// ---------------------------------------------------------------------------------------------------------------------------
+	
+	
+	// ---------------------------------------------------------------------------------------------------------------------------
 }
