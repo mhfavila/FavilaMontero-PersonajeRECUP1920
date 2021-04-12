@@ -165,6 +165,7 @@ public class GestionPersonaje {
 		personaje.setBonificacionArmaligera(50);
 		personaje.setBonificacionArmapesada(10);
 		personaje.setInventario(new InventarioDTO());
+		
 		ItemDTO item1 = new ItemDTO();
 		item1.setNombre("Espada");
 		item1.setDescripcion("espada pesada");
@@ -175,7 +176,11 @@ public class GestionPersonaje {
 		item1.setPeso(10);
 		item1.setPrecio(20);
 		personaje.getInventario().getMochila().add(item1);
-		// crear mas personajes como el primero
+		personaje.getInventario().setEspacioOcupado(10);
+		personaje.getInventario().setEspacioTotal(20);
+		personaje.getInventario().setPesoMaximo(100);
+		personaje.getInventario().setPesoMochila(50);
+		
 
 		listaPersonajes.add(personaje);
 
@@ -203,6 +208,10 @@ public class GestionPersonaje {
 		item2.setPeso(10);
 		item2.setPrecio(20);
 		personaje1.getInventario().getMochila().add(item2);
+		personaje1.getInventario().setEspacioOcupado(10);
+		personaje1.getInventario().setEspacioTotal(20);
+		personaje1.getInventario().setPesoMaximo(100);
+		personaje1.getInventario().setPesoMochila(50);
 
 		listaPersonajes.add(personaje1);
 
@@ -233,6 +242,10 @@ public class GestionPersonaje {
 		item3.setPeso(10);
 		item3.setPrecio(20);
 		personaje2.getInventario().getMochila().add(item3);
+		personaje2.getInventario().setEspacioOcupado(10);
+		personaje2.getInventario().setEspacioTotal(20);
+		personaje2.getInventario().setPesoMaximo(100);
+		personaje2.getInventario().setPesoMochila(50);
 
 		listaPersonajes.add(personaje2);
 
@@ -690,6 +703,7 @@ public class GestionPersonaje {
 					"Nombre|Nivel|Vida|Fuerza|Destreza|Constitucion|Inteligencia|Oro|Tipo|BonificacionPiromancia|BonificacionNigromancia|BonificacionIlusion|BonificacionTransmutación");
 			MagoDTO m = (MagoDTO) aux;
 			System.out.println(m.toString());
+			System.out.println("NOMBRE|DESCRIPCION| | | |");
 			System.out.println(m.getInventario().toString());
 
 			break;
@@ -707,7 +721,20 @@ public class GestionPersonaje {
 	// ---------------------------------------------------------------------------------------------------------------------------
 	
 	
-	
+	public void añadirObjeto(String nombre) {
+		ItemDTO item1 = new ItemDTO();
+		item1.setNombre(nombre);
+		item1.setDescripcion("DAGA");
+		item1.setAtaque(10);
+		item1.setDefensa(12);
+		item1.setEspacio(1);
+		item1.setMagico(10);
+		item1.setPeso(10);
+		item1.setPrecio(20);
+		personaje.getInventario().getMochila().add(item1);
+		
+		
+	}
 	
 	// ---------------------------------------------------------------------------------------------------------------------------
 	

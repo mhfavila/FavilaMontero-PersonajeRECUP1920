@@ -81,9 +81,10 @@ public class ItemDTO {
 
 	@Override
 	public String toString() {
-		return "Item [nombre=" + nombre + ", descripcion=" + descripcion + ", defensa=" + defensa + ", ataque=" + ataque
-				+ ", magico=" + magico + ", espacio=" + espacio + ", precio=" + precio + ", peso=" + peso + "]";
+		return this.nombre + " " + this.descripcion + " " + this.defensa + " " + this.ataque + " " + this.magico + " " + this.espacio + " " + this.precio + " " + this.peso + " ";
+				
 	}
+	
 	
 	
 	

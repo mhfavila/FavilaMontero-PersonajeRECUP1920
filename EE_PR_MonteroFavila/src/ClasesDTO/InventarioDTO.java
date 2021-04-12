@@ -68,8 +68,7 @@ public class InventarioDTO {
 
 	@Override
 	public String toString() {
-		return "Inventario [pesoMochila=" + pesoMochila + ", pesoMaximo=" + pesoMaximo + ", espacioTotal="
-				+ espacioTotal + ", espacioOcupado=" + espacioOcupado + ", mochila=" + mostrarMochila() + "]";
+		return this.pesoMochila + " " + this.pesoMaximo + " " + this.espacioTotal + " " + this.espacioOcupado + " " + this.mostrarMochila() + " ";
 
 	}
 
