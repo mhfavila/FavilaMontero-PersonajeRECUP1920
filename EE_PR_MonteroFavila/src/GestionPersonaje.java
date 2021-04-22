@@ -656,14 +656,18 @@ public class GestionPersonaje {
 						"\t  Nombre|Nivel|Vida|Fuerza|Destreza|Constitucion|Inteligencia|Oro|Tipo|Esconder|AbrirCerradura|AtaqueFurtivo");
 				PicaroDTO p = (PicaroDTO) aux;
 				System.out.println("PERSONAJE " + i + ": " + p.toString());
-				System.out.println(p.getInventario().toString());
+				System.out.println(
+						"Mochila:pesoMochila| pesoMaximo | espacioTotal | espacioOcupado |ITEM: Nombre | Descripcion | Defensa | Ataque | MAgico | Espacio |Precio |Peso");
+				System.out.println("\t"+p.getInventario().toString());
 				break;
 			case "Mago":
 				System.out.println(
 						"\t  Nombre|Nivel|Vida|Fuerza|Destreza|Constitucion|Inteligencia|Oro|Tipo|BonificacionPiromancia|BonificacionNigromancia|BonificacionIlusion|BonificacionTransmutación");
 				MagoDTO m = (MagoDTO) aux;
 				System.out.println("PERSONAJE " + i + ": " + m.toString());
-				System.out.println(m.getInventario().toString());
+				System.out.println(
+						"Mochila:pesoMochila| pesoMaximo | espacioTotal | espacioOcupado |ITEM: Nombre | Descripcion | Defensa | Ataque | MAgico | Espacio |Precio |Peso");
+				System.out.println("\t"+m.getInventario().toString());
 
 				break;
 			case "Guerrero":
@@ -671,7 +675,9 @@ public class GestionPersonaje {
 						"\t  Nombre|Nivel|Vida|Fuerza|Destreza|Constitucion|Inteligencia|Oro|Tipo|ModoBerserker|BonificacionArmaligera|BonificacionArmapesada");
 				GuerreroDTO g = (GuerreroDTO) aux;
 				System.out.println("PERSONAJE " + i + ": " + g.toString());
-				System.out.println(g.getInventario().toString());
+				System.out.println(
+						"Mochila:pesoMochila| pesoMaximo | espacioTotal | espacioOcupado |ITEM: Nombre | Descripcion | Defensa | Ataque | MAgico | Espacio |Precio |Peso");
+				System.out.println("\t"+g.getInventario().toString());
 				break;
 			}
 		}
@@ -696,6 +702,7 @@ public class GestionPersonaje {
 			System.out.println(
 					"Nombre|Nivel|Vida|Fuerza|Destreza|Constitucion|Inteligencia|Oro|Tipo|Esconder|AbrirCerradura|AtaqueFurtivo");
 			System.out.println(p.toString());
+			
 			System.out.println(p.getInventario().toString());
 			break;
 		case "Mago":
@@ -731,7 +738,7 @@ public class GestionPersonaje {
 		item1.setMagico(10);
 		item1.setPeso(10);
 		item1.setPrecio(20);
-		personaje.getInventario().getMochila().add(item1);
+		//personaje.getInventario().getMochila().add(item1);
 		
 		
 	}
