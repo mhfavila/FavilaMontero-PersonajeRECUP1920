@@ -1,8 +1,9 @@
 package ClasesDTO;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class InventarioDTO {
+public class InventarioDTO implements Serializable{
 
 	private int pesoMochila;
 	private int pesoMaximo;

@@ -1,6 +1,8 @@
 package ClasesDTO;
 
-public class MagoDTO extends PersonajeDTO {
+import java.io.Serializable;
+
+public class MagoDTO extends PersonajeDTO implements Serializable{
 	private int bonificacionPiromancia;
 	private int bonificacionNigromancia;
 	private int bonificacionIlusion;

@@ -1,6 +1,8 @@
 package ClasesDTO;
 
-public class GuerreroDTO extends PersonajeDTO {
+import java.io.Serializable;
+
+public class GuerreroDTO extends PersonajeDTO implements Serializable{
 	private int modoBerserker;
 	private int bonificacionArmaligera;
 	private int bonificacionArmapesada;

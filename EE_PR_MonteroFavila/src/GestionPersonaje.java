@@ -1,3 +1,10 @@
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -628,8 +635,7 @@ public class GestionPersonaje {
 		System.out.println("Peso");
 		objeto.setPeso(sc.nextInt());
 
-		PersonajeDTO aux = Buscar(Nombre);
-		aux.getInventario().getMochila().add(objeto);
+		anadirObjeto(objeto,Nombre);
 	}
 
 	// ---------------------------------------------------------------------------------------------------------------------------
@@ -728,8 +734,12 @@ public class GestionPersonaje {
 	// ---------------------------------------------------------------------------------------------------------------------------
 	
 	
-	public void añadirObjeto(String nombre) {
-		ItemDTO item1 = new ItemDTO();
+	public void anadirObjeto(ItemDTO objeto,String nombrePersonaje) {
+		
+		PersonajeDTO personaje = Buscar(nombrePersonaje);
+		personaje.getInventario().getMochila().add(objeto);
+		
+		/*ItemDTO item1 = new ItemDTO();
 		item1.setNombre(nombre);
 		item1.setDescripcion("DAGA");
 		item1.setAtaque(10);
@@ -738,13 +748,98 @@ public class GestionPersonaje {
 		item1.setMagico(10);
 		item1.setPeso(10);
 		item1.setPrecio(20);
-		//personaje.getInventario().getMochila().add(item1);
+		personaje.getInventario().getMochila().add(item1);*/
 		
 		
 	}
 	
 	// ---------------------------------------------------------------------------------------------------------------------------
 	
+	public void modificarDatosObjeto(String nombreObjeto,String nombrePersonaje) {
+		
+		PersonajeDTO personaje = Buscar(nombrePersonaje);
+		
+		ArrayList<ItemDTO> mochila = personaje.getInventario().getMochila();
+		for(int i = 0;i<mochila.size();i++) {
+			if(mochila.get(i).getNombre().equals(nombreObjeto)) {
+				ItemDTO objeto = mochila.get(i);
+				System.out.println("Introduce la nueva descripcion");
+			String descripcion = sc.nextLine();
+			objeto.setDescripcion(descripcion);
+			System.out.println("Introduce la nueva Defensa");
+			int defensa = sc.nextInt();
+			objeto.setDefensa(defensa);
+			System.out.println("Introduce el nuevo Ataque");
+			int ataque = sc.nextInt();
+			objeto.setAtaque(ataque);
+			System.out.println("Introduce el nuevo Magico");
+			int magico = sc.nextInt();
+			objeto.setMagico(magico);
+			System.out.println("Introduce el nuevo espacion");
+			int espacio = sc.nextInt();
+			objeto.setEspacio(espacio);
+			System.out.println("Introduce el nuevo Precio");
+			double precio = sc.nextDouble();
+			objeto.setPrecio(precio);
+			
+			System.out.println("Introduce el nuevo Peso");
+			int peso = sc.nextInt();
+			objeto.setPeso(peso);
+			
+			
+			//AÑADIR EL RESTO DE APARTADOS DE ITEM
+			/* private int defensa;
+    private int ataque;
+    private int magico;
+    private int espacio;
+    private double precio;
+    private int peso;*/
+			}
+		}
+		
+	}
+	// ---------------------------------------------------------------------------------------------------------------------------
+	
+	public void eliminarObjeto(String nombreObjeto,String nombrePersonaje) {
+		
+PersonajeDTO personaje = Buscar(nombrePersonaje);
+		
+		ArrayList<ItemDTO> mochila = personaje.getInventario().getMochila();
+		for(int i = 0;i<mochila.size();i++) {
+			if(mochila.get(i).getNombre().equals(nombreObjeto)) {
+				mochila.remove(i);
+			}
+		}
+		
+	}
+	
+	// ---------------------------------------------------------------------------------------------------------------------------
+	public void  mostrarInventarios() {
+		
+		for(int i = 0;i<listaPersonajes.size();i++) {
+		mostrarInventario(listaPersonajes.get(i).getNombre());	
+		}
+	}
+	// ---------------------------------------------------------------------------------------------------------------------------
+	public void guardarBackup() throws IOException {
+		File f = new File("Copia.obj"); 
+		FileOutputStream fos = new FileOutputStream(f);
+		ObjectOutputStream os = new ObjectOutputStream(fos);
+		
+		os.writeObject(this.listaPersonajes);
+		os.close();
+			
+		
+	}
+	// ---------------------------------------------------------------------------------------------------------------------------
+	public void cargarBackup() throws IOException, ClassNotFoundException {
+		
+		File f = new File("Copia.obj"); 
+		FileInputStream fis = new FileInputStream(f);
+		ObjectInputStream is = new ObjectInputStream(fis);
+		this.listaPersonajes = (ArrayList<PersonajeDTO>) is.readObject();
+		
+	}
 	
 	// ---------------------------------------------------------------------------------------------------------------------------
 }

@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -31,8 +32,9 @@ public class Principal {
 			System.out.println("5. eliminar personaje");
 			System.out.println("6. Modificar ");
 			System.out.println("7. Mostrar personaje con Inventario ");
-			System.out.println("6. Modificar ");
-			System.out.println("6. Modificar ");
+			System.out.println("8. anadirItem ");
+			System.out.println("9. Guardar backup ");
+			System.out.println("10. Cargar backup ");
 
 			eleccion = sc.nextInt();
 
@@ -77,6 +79,32 @@ public class Principal {
 				
 			case 7:
 				gp.mostrarListaPesonajesConInventario();
+				break;
+			case 8:
+				String Nombre = null;
+				System.out.println("Introduce el nombre del personaje");
+				sc.nextLine();//para que pida vien el nombre
+				Nombre=sc.nextLine();
+				gp.agregarItem(Nombre);
+				break;
+			case 9:
+				try {
+					gp.guardarBackup();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				break;
+			case 10:
+				try {
+					gp.cargarBackup();
+				} catch (ClassNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				break;
 
 			}

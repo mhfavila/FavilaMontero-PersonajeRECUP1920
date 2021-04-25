@@ -1,6 +1,8 @@
 package ClasesDTO;
 
-public class ItemDTO {
+import java.io.Serializable;
+
+public class ItemDTO implements Serializable{
 	
 	private String nombre;
     private String descripcion;

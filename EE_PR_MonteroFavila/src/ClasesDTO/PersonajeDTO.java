@@ -1,6 +1,8 @@
 package ClasesDTO;
 
-public class PersonajeDTO {
+import java.io.Serializable;
+
+public class PersonajeDTO implements Serializable {
 	private String Nombre;
 	private int Nivel;
 	private int Vida;

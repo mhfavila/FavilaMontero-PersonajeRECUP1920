@@ -1,6 +1,8 @@
 package ClasesDTO;
 
-public class PicaroDTO extends PersonajeDTO {
+import java.io.Serializable;
+
+public class PicaroDTO extends PersonajeDTO  implements Serializable{
 
 	private int Esconder;
 	private int abrirCerradura;
