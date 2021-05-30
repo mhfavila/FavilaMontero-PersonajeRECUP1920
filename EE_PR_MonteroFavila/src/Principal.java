@@ -25,7 +25,7 @@ public class Principal {
 		 */
 		int eleccion = 0;
 		do {
-			System.out.println("1. Cargar los personajes(los que ya estan creados como predefinidos");
+			System.out.println("1. Cargar los personajes(CREADOS PARA HACER PRUEBA)");
 			System.out.println("2. Nuevo personaje");
 			System.out.println("3. Lista de personajes");
 			System.out.println("4. Informacion de los personajes.");
@@ -35,6 +35,8 @@ public class Principal {
 			System.out.println("8. anadirItem ");
 			System.out.println("9. Guardar backup ");
 			System.out.println("10. Cargar backup ");
+			System.out.println("11. Mostrar personaje por categoria y objeto ");
+			System.out.println("12. Comerciar ");
 
 			eleccion = sc.nextInt();
 
@@ -45,13 +47,14 @@ public class Principal {
 				break;
 			case 2:
 				gp.nuevoPersonaje();
+				System.out.println("PERSONAJE CREADO!!!!!");
 				break;
 			case 3:
 				gp.mostrarListaPesonajes();
 				break;
 			case 4:
 				String nombre;
-				System.out.println("Introduce el nombre del personaje");
+				System.out.println("Introduce el nombre del personaje, el personaje tiene que ser uno de los que existe (Revisar LISTA PERSONAJES)");
 				sc.nextLine();//para que pida bien el nombre
 				nombre=sc.nextLine();
 				//nombre="goku";
@@ -83,7 +86,7 @@ public class Principal {
 			case 8:
 				String Nombre = null;
 				System.out.println("Introduce el nombre del personaje");
-				sc.nextLine();//para que pida vien el nombre
+				sc.nextLine();//para que pida Bien el nombre
 				Nombre=sc.nextLine();
 				gp.agregarItem(Nombre);
 				break;
@@ -105,6 +108,30 @@ public class Principal {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
+				break;
+				
+			case 11:
+				String nombreCategoria = "";
+				System.out.println("Introduce el nombre de la categoría del personaje");
+				sc.nextLine();//para que pida vien el nombre
+				nombreCategoria=sc.nextLine();
+				
+				String nombreObjeto = "";
+				System.out.println("Introduce el nombre de la objeto del personaje");
+				//sc.nextLine();//para que pida vien el nombre
+				nombreObjeto=sc.nextLine();
+				
+				gp.mostrarPersonajeCategoria(nombreCategoria, nombreObjeto);
+				break;
+			case 12:
+				String nombrePersonaje = "";
+				System.out.println("Introduce el nombre  del personaje");
+				sc.nextLine();//para que pida bien el nombre
+				nombrePersonaje=sc.nextLine();
+				
+				
+				
+				gp.comercioPersonaje(nombrePersonaje);
 				break;
 
 			}

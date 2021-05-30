@@ -74,7 +74,7 @@ public class GuerreroDTO extends PersonajeDTO implements Serializable{
 
 	public GuerreroDTO() {
 		super();
-		
+		this.setInventario(new InventarioDTO());
 		
 		
 	}

@@ -53,7 +53,7 @@ public class PicaroDTO extends PersonajeDTO  implements Serializable{
 
 	public PicaroDTO() {
 		super();
-		
+		this.setInventario(new InventarioDTO());
 		
 		
 		

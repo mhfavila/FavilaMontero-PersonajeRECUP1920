@@ -66,6 +66,55 @@ public class InventarioDTO implements Serializable{
 	public void setMochila(ArrayList<ItemDTO> mochila) {
 		this.mochila = mochila;
 	}
+	
+	public void anadirObjeto(ItemDTO item) {
+		
+		boolean cabePeso = false;
+		boolean cabeTamano = false;
+		
+		if (this.pesoMochila + item.getPeso() < this.pesoMaximo) {
+			cabePeso = true;
+		}
+		
+		if (this.espacioOcupado + item.getEspacio() < this.espacioTotal) {
+			cabeTamano = true;
+		}
+		
+		if (cabePeso && cabeTamano) {
+			this.mochila.add(item);
+			
+			this.setPesoMochila(this.getPesoMochila() + item.getPeso());
+			this.setEspacioOcupado(this.getEspacioOcupado() + item.getEspacio());
+			
+		} else {
+			if (cabePeso==false) {
+				System.out.println("El objeto no se ha introducido debido a que el peso es mayor que el maximo.");
+			}
+			
+			if (cabeTamano==false) {
+				System.out.println("El objeto no se ha introducido debido a que el espacio es mayor que el maximo.");
+			}
+		}
+		
+	}
+	
+	
+	public void quitarObjeto(ItemDTO item) {
+		
+		
+		for (int i = 0; i < this.mochila.size(); i++) {
+			if (this.mochila.get(i).getNombre().equalsIgnoreCase(item.getNombre())) {
+				
+				this.mochila.remove(i);
+				
+				this.setPesoMochila(this.getPesoMochila() - item.getPeso());
+				this.setEspacioOcupado(this.getEspacioOcupado() - item.getEspacio());
+				
+			}
+
+		}
+		
+	}
 
 	@Override
 	public String toString() {

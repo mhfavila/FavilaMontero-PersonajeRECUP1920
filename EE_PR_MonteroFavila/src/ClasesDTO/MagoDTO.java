@@ -79,7 +79,7 @@ public class MagoDTO extends PersonajeDTO implements Serializable{
 
 	public MagoDTO() {
 		super();
-		
+		this.setInventario(new InventarioDTO());
 		
 	
 	}
